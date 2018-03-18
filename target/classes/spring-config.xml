@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context 
+      	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+    <bean  id="helloWorid" class="com.privalia.presentation.HelloWorld">
+     <property name="hello" value="Hola Mundo!"></property>
+    </bean>  	
+     <bean  id="helloWoridConst" class="com.privalia.presentation.HelloWorld">
+     <constructor-arg name="hello" index="0" value="Hola Mundo from constructor!" type="java.lang.String"/>
+    </bean>  	
+       <bean  id="helloWoridLok" class="com.privalia.presentation.lombok.HelloWorldLOK">
+     <property name="hello" value="Hola Mundo!"></property>
+    </bean>  	
+     <bean  id="helloWoridLokConst" class="com.privalia.presentation.lombok.HelloWorldLOK">
+     <constructor-arg name="hello" index="0" value="Hola Mundo from constructor!" type="java.lang.String"/>
+    </bean>  	
+</beans>
