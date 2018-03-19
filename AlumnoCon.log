@@ -17,3 +17,6 @@
 2018-03-14 21:00:31 INFO  DefaultTestContextBootstrapper:174 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@61a485d2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@39fb3ab6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6276ae34]
 2018-03-14 21:00:31 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@3ffc5af1: startup date [Wed Mar 14 21:00:31 CET 2018]; root of context hierarchy
 2018-03-14 21:00:31 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@3ffc5af1: startup date [Wed Mar 14 21:00:31 CET 2018]; root of context hierarchy
+2018-03-18 21:14:14 INFO  ClassPathXmlApplicationContext:583 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@45fe3ee3: startup date [Sun Mar 18 21:14:14 CET 2018]; root of context hierarchy
+2018-03-18 21:14:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [spring-config.xml]
+2018-03-18 21:14:15 INFO  ClassPathXmlApplicationContext:984 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@45fe3ee3: startup date [Sun Mar 18 21:14:14 CET 2018]; root of context hierarchy
