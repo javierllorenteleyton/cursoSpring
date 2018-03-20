@@ -31,6 +31,13 @@
       <property name="age" value="24"></property>
       <property name="address"> <ref bean="address"/></property>
     </bean>
+    <bean id="studentConst" class="com.privalia.entity.Student">
+<constructor-arg index="0" value="${student.idstudent}" type="int"/>
+<constructor-arg index="1" value="${student.name}" type="java.lang.String"/>
+<constructor-arg index="2" value="${student.surname}" type="java.lang.String"/>
+<constructor-arg index="3" value="${student.age}" type="int"/>
+ <constructor-arg name="address"> <ref bean="address"/></constructor-arg>
+</bean>
     <bean id="address" class="com.privalia.entity.Address">
         <constructor-arg index="0" value="1" type="int"></constructor-arg>
         <constructor-arg index="1" value="Calle san juan" type="String"></constructor-arg>
