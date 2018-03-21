@@ -2,6 +2,9 @@ package com.privalia.entity.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
 
 
 
@@ -27,6 +30,8 @@ public class Student {
 	private int age;
 	
 	@Autowired
+//	@Qualifier("address")
+//	@value("#{address}")
 	private Address address;
 	
 	public int getIdStudent() {
@@ -102,4 +107,6 @@ public class Student {
 		builder.append("]");
 		return builder.toString();
 	}
+	
+
 }
