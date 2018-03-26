@@ -52,16 +52,16 @@
 		<constructor-arg index="1" value="Calle san juan"
 			type="String"></constructor-arg>
 	</bean>
-	
+
 	<bean id="teacher1" class="com.privalia.entity.listas.Teacher">
 		<property name="idTeacher" value="1"></property>
 		<property name="name" value="Pepe"></property>
-	 </bean>	
-	
+	</bean>
+
 	<bean id="teacher2" class="com.privalia.entity.listas.Teacher">
 		<property name="idTeacher" value="2"></property>
 		<property name="name" value="Juan"></property>
-	 </bean>	
+	</bean>
 
 	<bean id="david3Student" class="com.privalia.entity.listas.Student">
 		<property name="idStudent" value="1"></property>
@@ -70,9 +70,37 @@
 		<property name="age" value="24"></property>
 		<property name="listTeacher">
 			<list>
-			  <ref bean="teacher1" />
-        <ref bean="teacher2" />
+				<ref bean="teacher1" />
+				<ref bean="teacher2" />
 			</list>
 		</property>
 	</bean>
+	<bean id="builder" class="com.privalia.builder.example.Employee$EmployeeBuilder">
+		<constructor-arg value="1" />
+		<constructor-arg value="Shamik" />
+		<property name="gender" value="1" />
+		<property name="hobby" value="Blogging" />
+	</bean>
+	<bean id="employee" class="com.privalia.builder.example.Employee"
+		factory-bean="builder" factory-method="build" />
+
+	<bean id="compra" class="com.privalia.aspectos.Comprar"></bean>
+	<bean id="validarCompra" class="com.privalia.aspectos.ValidarMaterial"></bean>
+
+	<aop:config>
+		<aop:aspect ref="validarCompra">
+			<aop:pointcut
+				expression="execution( * com.privalia.aspectos.Comprar.compra(..) )"
+				id="compraPoitCut" />
+			<aop:before method="comprobarCantidad" pointcut-ref="compraPoitCut" />
+
+			<aop:after-returning method="empaquetar"
+				pointcut-ref="compraPoitCut" />
+
+			<aop:after-throwing method="ponerReclamacion"
+				pointcut-ref="compraPoitCut" />
+
+		</aop:aspect>
+	</aop:config>
+
 </beans>

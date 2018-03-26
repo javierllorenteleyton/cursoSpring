@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.avanttic</groupId>
-  <artifactId>PrivaliaSpringProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.avanttic</groupId>
+	<artifactId>PrivaliaSpringProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<spring.version>4.3.14.RELEASE</spring.version>
-		<junit.version>4.12</junit.version> 
+		<junit.version>4.12</junit.version>
 		<cucumber.version>1.2.4</cucumber.version>
 		<cglib.version>2.2</cglib.version>
 		<slf4japi.version>1.7.25</slf4japi.version>
@@ -19,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId> 
+			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -83,10 +84,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>pl.pragmatists</groupId>
-		    <artifactId>JUnitParams</artifactId>
-		    <version>${junitparams.version}</version>
-		    <scope>test</scope>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<version>${junitparams.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -113,12 +114,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.16.20</version>
-</dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.20</version>
+		</dependency>
 	</dependencies>
-		<build>
+	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -130,7 +131,41 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+		  				<addClasspath>true</addClasspath> 
+							<mainClass>com.privalia.entity.listas.annotaciones.Principal</mainClass>
+						<classpathPrefix>lib/</classpathPrefix> 
+						</manifest>
+					</archive>
+				</configuration>
 			</plugin>
+ 
+ <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-dependency-plugin</artifactId>
+	<version>2.5.1</version>
+	<executions>
+	  <execution>
+		<id>copy-dependencies</id>
+		<phase>package</phase>
+		<goals>
+		    <goal>copy-dependencies</goal>
+		</goals>
+		<configuration>
+		    <outputDirectory>
+                          ${project.build.directory}/lib/
+                    </outputDirectory>
+		</configuration>
+	    </execution>
+	</executions>
+  </plugin>
 	
 		</plugins>
 	</build>
